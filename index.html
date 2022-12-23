@@ -55,6 +55,7 @@
             {
                 method: 'GET'
             })).json();
+            console.log(beerName)
         },
         async get_beer_per_brewery(){
             this.beersFromBrewery = await (await fetch('https://beer-joppevdb.cloud.okteto.net/beer/brewery/'+ this.inputBreweryId,
@@ -70,7 +71,7 @@
             console.log(this.beersFromType)
         },
         async post_beer(){
-            this.responseData = await (await fetch('https://beer-joppevdb.cloud.okteto.net/brewery/' + this.postBeBreweryId + '/beers/',
+            this.responseData = await (await fetch('https://beer-joppevdb.cloud.okteto.net/brewery/{name}?brewery_name' + this.postBeBreweryId + '/beers/',
             {
                 method: 'POST',
                 body :JSON.stringify({
@@ -133,11 +134,11 @@
             {
                 method: 'POST',
                 body :JSON.stringify({
-                    client_id: null,
-                    client_secret: null,
-                    scope: null,
-                    grant_type: null,
-                    refresh_token: null,
+                    client_id: '',
+                    client_secret: '',
+                    scope: '',
+                    grant_type: '',
+                    refresh_token: '',
                     username: this.postOUsername,
                     password: this.postOTokenPassword,
                 }),
@@ -323,7 +324,7 @@
                     <input class="col-6" type="text" x-model="inputNameBrewery">
                     <button id="brewerySearch" class="col-6" x-on:click="get_brewery">Search</button>
                     <div id="overviewBrewery" class="invisible">
-                        <div class="col-12 brewery">
+                        <div class="col-12 frame">
                             <h3 x-text="brewery.name"></h3>
                             <ul>
                                 <li>Address: <strong x-text="brewery.address"></strong></li>
