@@ -301,7 +301,7 @@
                 <template x-for="brewery in breweries">
                     <div class="col-4 d-flex justify-content-center">
                         <div class="frame">
-                            <h3 x-text="this.brewery.name"></h3>
+                            <h3 x-text="brewery.name"></h3>
                             <ul>
                                 <li>Address: <strong x-text="brewery.address"></strong></li>
                                 <li>Owner_id: <strong x-text="brewery.owner_id"></strong></li>
@@ -321,7 +321,7 @@
                     <button id="brewerySearch" class="col-6" x-on:click="get_brewery">Search</button>
                     <div id="overviewBrewery" class="invisible">
                         <div class="col-12 frame">
-                            <h3 x-text="brewery.name"></h3>
+                            <h3 x-text="this.brewery.name"></h3>
                             <ul>
                                 <li>Address: <strong x-text="brewery.address"></strong></li>
                                 <li>Owner_id: <strong x-text="brewery.owner_id"></strong></li>
