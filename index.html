@@ -25,7 +25,7 @@
         responseDataBrewery: null,
         responseDataToken: null,
         responseDataOwner: null,
-        brewery: null,
+        brewery: '',
 
         inputNameBeer: null,
         inputBreweryId: null,
@@ -96,7 +96,7 @@
             {
                 method: 'GET'
             })).json();
-            console.log(this.brewery.name)
+           
         },
         async postBrewery(){
             this.responseDataBrewery = await (await fetch('https://beer-joppevdb.cloud.okteto.net/brewery/',
@@ -322,7 +322,7 @@
                     <button id="brewerySearch" class="col-6" x-on:click="get_brewery">Search</button>
                     <div id="overviewBrewery" class="invisible">
                         <div class="col-12 frame">
-                            <h3 x-text="this.brewery.name"></h3>
+                            <h3 x-text="brewery.name"></h3>
                             <ul>
                                 <li>Address: <strong x-text="brewery.address"></strong></li>
                                 <li>Owner_id: <strong x-text="brewery.owner_id"></strong></li>
