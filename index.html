@@ -94,7 +94,7 @@
             })).json();
         },
         async get_brewery(){
-            this.brewery = await (await fetch('https://beer-joppevdb.cloud.okteto.net/brewery/{name}?brewery_name'' + this.inputNameBrewery,
+            this.brewery = await (await fetch('https://beer-joppevdb.cloud.okteto.net/brewery/{name}?brewery_name' + this.inputNameBrewery,
             {
                 method: 'GET'
             })).json();
