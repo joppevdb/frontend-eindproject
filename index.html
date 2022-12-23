@@ -95,6 +95,7 @@
             {
                 method: 'GET'
             })).json();
+            console.log(this.brewery)
         },
         async postBrewery(){
             this.responseDataBrewery = await (await fetch('https://beer-joppevdb.cloud.okteto.net/brewery/',
