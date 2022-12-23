@@ -51,11 +51,10 @@
             })).json();
         },
         async get_beer(){
-            this.beerName = await (await fetch('https://beer-joppevdb.cloud.okteto.net/beer/{name}?name='+ this.inputNameBeer,
+            this.beerName = await (await fetch('https://beer-joppevdb.cloud.okteto.net/beer/'+ this.inputNameBeer,
             {
                 method: 'GET'
             })).json();
-            console.log(beerName)
         },
         async get_beer_per_brewery(){
             this.beersFromBrewery = await (await fetch('https://beer-joppevdb.cloud.okteto.net/beer/brewery/'+ this.inputBreweryId,
@@ -68,7 +67,6 @@
             {
                 method: 'GET'
             })).json();
-            console.log(this.beersFromType)
         },
         async post_beer(){
             this.responseData = await (await fetch('https://beer-joppevdb.cloud.okteto.net/brewery/' + this.postBeBreweryId + '/beers/',
@@ -84,7 +82,6 @@
                     'Content-type': 'application/json; charset=UTF-8',
                 }
             })).json();
-            console.log(this.responseData)
         },
 
         async get_breweries(){
@@ -98,7 +95,6 @@
             {
                 method: 'GET'
             })).json();
-            console.log(this.brewery)
         },
         async postBrewery(){
             this.responseDataBrewery = await (await fetch('https://beer-joppevdb.cloud.okteto.net/brewery/',
@@ -113,7 +109,6 @@
                     'Content-type': 'application/json; charset=UTF-8',
                 }
             })).json();
-            console.log(this.responseDataBrewery)
         },
 
         async create_owner(){
@@ -197,12 +192,12 @@
                     <button id="beerSearch" class="col-6" x-on:click="get_beer">Search</button>
                     <div id="overviewBeer" class="invisible">
                         <div class="col-12 frame">
-                            <h3 x-text="beer.name"></h3>
+                            <h3 x-text="beerName.name"></h3>
                             <ul>
-                                <li>Volume: <strong x-text="beer.volume"></strong></li>
-                                <li>Alcohol percentage: <strong x-text="beer.alcohol_perc"></strong>%</li>
-                                <li>type: <strong x-text="beer.type"></strong></li>
-                                <li>Brewery: <strong x-text="beer.brewery_id"></strong></li>
+                                <li>Volume: <strong x-text="beerName.volume"></strong></li>
+                                <li>Alcohol percentage: <strong x-text="beerName.alcohol_perc"></strong>%</li>
+                                <li>type: <strong x-text="beerName.type"></strong></li>
+                                <li>Brewery: <strong x-text="beerName.brewery_id"></strong></li>
                             </ul>
                         </div>
                     </div>
